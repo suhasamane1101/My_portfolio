@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - About & Projects</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c; /* Dark background */
+            color: #f0f0f0; /* Light text color for contrast */
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Animation Styling */
+        .floating-text {
+            position: absolute;
+            font-size: 4em; /* Increased font size */
+            color: rgba(255, 255, 255, 0.1); /* Light color with transparency */
+            font-weight: bold; /* Bold font */
+            animation: floatText 20s infinite linear;
+            white-space: nowrap;
+            filter: blur(1px); /* Slight blur for a soft look */
+            transform: scale(1.1); /* Slight scale up */
+        }
+
+        /* Animations for floating text */
+        @keyframes floatText {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
+        }
+
+        /* Multiple text floating with different timings */
+        .floating-text:nth-child(2) { animation-duration: 22s; top: 20%; }
+        .floating-text:nth-child(3) { animation-duration: 24s; top: 40%; }
+        .floating-text:nth-child(4) { animation-duration: 26s; top: 60%; }
+        .floating-text:nth-child(5) { animation-duration: 28s; top: 80%; }
+
+        /* Name Styling */
+        .portfolio-name {
+            text-align: center;
+            margin: 50px 0; /* Spacing around the name */
+            font-size: 3em; /* Font size for your name */
+            color: #4ecdc4; /* Turquoise color */
+            font-weight: bold; /* Bold font for emphasis */
+        }
+
+        /* Section Titles */
+        h2 {
+            font-weight: bold;
+            color: #ff6b6b; /* Coral red for heading */
+            font-size: 2.5em;
+            animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+        }
+
+        /* Fade-in animation for sections */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* About Section Styling */
+        #about {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2em 0;
+            background: rgba(30, 30, 30, 0.8); /* Dark semi-transparent background */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        /* Project Section Styling */
+        #projects {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 3em 0;
+            border-radius: 8px;
+            max-width: 1200px;
+            margin: 2em auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        .card {
+            background-color: #2a2a2a; /* Dark card background */
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+        }
+        .card-title {
+            color: #4ecdc4; /* Turquoise title */
+        }
+        .card-footer {
+            background: transparent;
+        }
+
+        /* Button Customization */
+        .btn-primary {
+            background-color: #ff6b6b;
+            border: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #e63946; /* Darker coral */
+        }
+        .btn-secondary {
+            background-color: #4ecdc4;
+            border: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-secondary:hover {
+            background-color: #2a9d8f; /* Darker turquoise */
+        }
+
+        /* Resume Section Styling */
+        #resume {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2em 0;
+            background: rgba(30, 30, 30, 0.8); /* Dark semi-transparent background */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.4s ease-in-out;
+        }
+        /* Custom Styles for the Navigation Bar */
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.nav-link {
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.nav-link:hover {
+    color: #ff4081; /* Change color on hover */
+}
+
+/* Adjust the navbar brand */
+.navbar-brand {
+    font-weight: bold; /* Bold brand name */
+}
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar Start -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#home">Suhas Amane</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Sticky Navigation Bar End -->
+    <!-- Background Floating Text -->
+    <div class="floating-text">Machine Learning</div>
+    <div class="floating-text">Data Analysis</div>
+    <div class="floating-text">Python</div>
+    <div class="floating-text">Artificial Intelligence</div>
+    <div class="floating-text">Deep Learning</div>
+
+    <!-- Portfolio Name -->
+    <div class="portfolio-name">Hi, I'm Suhas Amane</div> <!-- Replace "Your Name" with your actual name -->
+
+    <!-- About Section Start -->
+    <section class="text-center my-5" id="about">
+        <h2 class="mb-4">About</h2>
+        <p class="lead">I am a dedicated and enthusiastic data science student with a passion for analyzing data and solving real-world problems. I have hands-on experience in Python, machine learning, and data visualization. I enjoy working on projects like predicting plant diseases, crop yields, and maintaining industrial equipment using AI and machine learning. I have also interned as a data analyst, where I used tools like Power BI, Tableau, and Python to create meaningful insights. I am always eager to learn and apply my skills to create data-driven solutions.
+        </p>
+        <p class="lead">In addition to technical skills I have also developed strong problem-solving abilities and attention to detail, which helps me identify patterns in data and increase productivity.</p>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Projects Section Start -->
+    <section class="text-center my-5" id="projects">
+        <h2 class="mb-4">Projects</h2>
+        <div class="container">
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/projects/1.png" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Predictive maintainance For Industrial Equipments Using ML</h5>
+                            <p class="card-text">Predictive Maintenance for Industry uses data and machine learning to predict equipment failures and optimize maintenance. By analyzing sensor data, it identifies issues early, reducing downtime, cutting costs, and extending equipment life.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://render-demo-builtup.onrender.com" class="btn btn-primary">Project Link</a> <!-- Changed to "Project Link" -->
+                            <a href="https://github.com/suhasamane1101/Builtup_predictive_Analysis.git" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/projects/2.png" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Cement Strength Prediction</h5>
+                            <p class="card-text">Predicting compressive strength of cement using Machine Learning, analyzing factors such as raw material composition, curing time, and environmental conditions. To predict the compressive strength of cement, it is best to train machine learning models such as decision trees, random forests, or linear regression on historical data. Efficiency can also be Evaluate in advance The production process can be optimized to ensure consistent product quality.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://cement-strength-render.onrender.com" class="btn btn-primary">Project Link</a> <!-- Changed to "Project Link" -->
+                            <a href="https://github.com/suhasamane1101/MiniProject.git" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/projects/3.png" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">End to End Multi Language Invoice Extractor Project using Gemini Pro LLM Model
+                            </h5>
+                            <p class="card-text">I developed an End-to-End Multi-Language Invoice Extractor using the Gemini Pro LLM Model. The project focused on automating the extraction of key information such as invoice numbers, dates, and amounts from invoices in various languages. Using advanced natural language processing (NLP) and machine learning techniques, the model was able to handle multiple formats and languages with high accuracy. This solution significantly streamlined invoice processing by reducing manual data entry and improving efficiency</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://imageextractornew-c2ml7cnogesgxahxqs3md9.streamlit.app/" class="btn btn-primary">Project Link</a> <!-- Changed to "Project Link" -->
+                            <a href="https://github.com/suhasamane1101/Image_Extractor_new.git" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section End -->
+
+    <!-- Skills Section Start -->
+<section class="text-center my-5" id="skills">
+    <h2 class="mb-4">Skills</h2>
+    <div class="container">
+        <div class="row">
+            <!-- Skill 1 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="images/skills/1.png" class="card-img-top" alt="Python">
+                    <div class="card-body">
+                        <h5 class="card-title">Python</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 2 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="images/skills/2.png" class="card-img-top" alt="Data Visualization">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Visualization</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 3 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="images/skills/3.png" class="card-img-top" alt="SQL">
+                    <div class="card-body">
+                        <h5 class="card-title">SQL</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 4 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="images/skills/4.jpg" class="card-img-top" alt="Machine Learning">
+                    <div class="card-body">
+                        <h5 class="card-title">Machine Learning & Deep Learning</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Skills Section End -->
+
+    
+    <!-- Resume Section Start -->
+    <section class="text-center my-5" id="resume">
+        <h2 class="mb-4">Resume</h2>
+        <p class="lead">You can download my resume by clicking the link below:</p>
+        <a href="https://drive.google.com/file/d/1NpHfnfG7drEK1aj-Hbg1UIBd22iUGoJO/view?usp=sharing" class="btn btn-primary">Download Resume</a> <!-- Replace with your actual resume link -->
+    </section>
+    <!-- Resume Section End -->
+
+    <!-- Contact Me Section Start -->
+<section class="text-center my-5" id="contact" style="background-color: #333; color: white; padding: 50px 0;">
+    <h2 class="mb-4">Contact Me</h2>
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <h5>
+                    <img src="icons/mail.png" alt="Email" style="width: 24px; vertical-align: middle; margin-right: 8px;">
+                    suhasamane2@gmail.com <!-- Replace with your actual email -->
+                </h5>
+            </div>
+            <div class="col-md-6">
+                <h5>
+                    <img src="icons/phone.png" alt="Phone" style="width: 24px; vertical-align: middle; margin-right: 8px;">
+                    +91 8857855217 <!-- Replace with your actual phone number -->
+                </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h5>Connect with me on:</h5>
+                <div class="d-flex justify-content-center">
+                    <a href="https://www.linkedin.com/in/suhas-amane-45a662240/" target="_blank" data-toggle="tooltip" title="LinkedIn" class="btn btn-circle mx-2">
+                        <img src="icons/linkedin.png" alt="LinkedIn" style="width: 30px;">
+                    </a>
+                    <a href="https://twitter.com/SuhasAmane64130" target="_blank" data-toggle="tooltip" title="Twitter" class="btn btn-circle mx-2">
+                        <img src="icons/twitter.png" alt="Twitter" style="width: 30px;">
+                    </a>
+                    <a href="https://github.com/suhasamane1101" target="_blank" data-toggle="tooltip" title="GitHub" class="btn btn-circle mx-2">
+                        <img src="icons/github.png" alt="GitHub" style="width: 30px;">
+                    </a>
+                    <a href="https://www.instagram.com/suhas.amane.1/" target="_blank" data-toggle="tooltip" title="GitHub" class="btn btn-circle mx-2">
+                        <img src="icons/insta.png" alt="Instagram" style="width: 30px;">
+                    </a>
+                    <a href="https://www.facebook.com/suhas.amane.1" target="_blank" data-toggle="tooltip" title="GitHub" class="btn btn-circle mx-2">
+                        <img src="icons/facebook.png" alt="Facebook" style="width: 30px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Me Section End -->
+
+<!-- Add the following CSS to style the circular buttons -->
+<style>
+    .btn-circle {
+        background-color: #ff4081; /* Pink background */
+        border-radius: 50%;
+        padding: 10px;
+        border: none;
+    }
+    .btn-circle:hover {
+        background-color: #e91e63; /* Darker pink on hover */
+    }
+</style>
+
+<script>
+    // Smooth scrolling to sections
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
