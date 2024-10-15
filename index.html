@@ -146,8 +146,68 @@
 .navbar-brand {
     font-weight: bold; /* Bold brand name */
 }
+
+  /* About Section Styling */
+  #about {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 1.5em 2em; /* Adjusted padding for more structured look */
+        background: rgba(30, 30, 30, 0.8); /* Dark semi-transparent background */
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        animation: fadeIn 1s ease-in-out;
+    }
+    
+    /* About Section Text Styling */
+    #about p {
+        font-size: 1em; /* Reduced text size */
+        line-height: 1.6; /* Better readability */
+    }
+
+/* Updated Animations for floating text */
+@keyframes floatText {
+    0% { transform: translateX(-100%) translateY(0); }
+    50% { transform: translateX(100vw) translateY(20px); }
+    100% { transform: translateX(-100%) translateY(0); }
+}
+
+.navbar-collapse {
+    transition: all 0.4s ease-in-out;
+}
+
+
+    /* Back to Top Button Style */
+    #backToTopBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed position */
+        bottom: 20px; /* 20px from the bottom */
+        right: 20px; /* 20px from the right */
+        z-index: 99; /* Stay on top */
+    }
+
+    
+
+    /* Slide-in from left animation for the portfolio-name */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .portfolio-name {
+        animation: slideIn 2s ease-in-out; /* Animation duration is 2 seconds */
+    }
+
+
+
     </style>
 </head>
+
 <body>
 
     <!-- Sticky Navigation Bar Start -->
@@ -159,9 +219,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#about">About</a>
                 </li>
@@ -188,6 +245,7 @@
 
     <!-- Portfolio Name -->
     <div class="portfolio-name">Hi, I'm Suhas Amane</div> <!-- Replace "Your Name" with your actual name -->
+    <div class="portfolio-name">Data Science Learner</div>
 
     <!-- About Section Start -->
     <section class="text-center my-5" id="about">
@@ -364,11 +422,16 @@
 </style>
 
 <script>
-    // Smooth scrolling to sections
+    // Smooth scrolling to sections with offset for navbar
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
+            const targetElement = document.querySelector(this.getAttribute('href'));
+            const offset = 70; // Adjust for the navbar height
+            const elementPosition = targetElement.offsetTop - offset;
+
+            window.scrollTo({
+                top: elementPosition,
                 behavior: 'smooth'
             });
         });
@@ -376,12 +439,38 @@
 </script>
 
 
-
-
-
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Back to Top Button -->
+<button onclick="topFunction()" id="backToTopBtn" class="btn btn-primary">Back to Top</button>
+
+<!-- JavaScript for Back to Top Functionality -->
+<script>
+    // Get the button
+    var backToTopBtn = document.getElementById("backToTopBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopBtn.style.display = "block";
+        } else {
+            backToTopBtn.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+    }
+</script>
+
 </body>
 </html>
